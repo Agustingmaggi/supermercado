@@ -1,0 +1,29 @@
+<h1>home!</h1><br><br>
+<a href="/register">Registrate</a> <br>
+<a href="/profile">profile</a> <br>
+<a href="/login">Login</a><br>
+
+
+{{#each products}}
+<div class=" producto">
+    <p>{{this.title}}</p>
+    <p>{{this.categories}}</p>
+    <p>Precio ${{this.price}}</p>
+    <p>Stock {{this.stock}}</p>
+    <img src="{{this.images.[0]}}">
+    <button onclick="addProduct('{{this._id}}')" class="agregar-carrito">Agregar al carrito</button>
+</div>
+{{/each}}
+
+
+<style>
+    * {
+        background-color: grey;
+    }
+
+    .producto {
+        border: 2px solid black;
+    }
+</style>
+
+<script href="../public/js/home.js"></script>

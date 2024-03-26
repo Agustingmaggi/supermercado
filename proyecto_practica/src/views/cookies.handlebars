@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fetch Cookies</title>
+</head>
+
+<body>
+    <button id="getCookies">Obtener Cookies</button>
+
+    <script>
+        document.getElementById('getCookies').addEventListener('click', () => {
+            fetch('/cookies', {
+                method: 'GET',
+                credentials: 'same-origin' // Asegura que las cookies se envíen en la solicitud
+            })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(document.cookie);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>
