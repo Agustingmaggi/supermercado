@@ -1,17 +1,20 @@
 import BaseRouter from './BaseRouter.js';
+import { Router } from "express"
 import uploader from '../services/uploadService.js'
 import ProductsController from '../controllers/ProductsController.js'
 
-class ProductsRouter extends BaseRouter {
-    init() {
-        this.get('/:pid', ProductsController.getProduct)
-        this.post('/', uploader.array('images'), ProductsController.createProducts)
-        this.put('/:pid', ProductsController.updateProduct)
-        this.delete('/:pid', ProductsController.deleteProduct)
-    }
-}
+const router = Router()
+
+// class ProductsRouter extends BaseRouter {
+//     init() {
+router.get('/:pid', ProductsController.getProduct)
+router.post('/', uploader.array('images'), ProductsController.createProducts)
+router.put('/:pid', ProductsController.updateProduct)
+router.delete('/:pid', ProductsController.deleteProduct)
+//     }
+// }
 
 
-const productsRouter = new ProductsRouter()
+// const productsRouter = new ProductsRouter()
 
-export default productsRouter.getRouter()
+export default router

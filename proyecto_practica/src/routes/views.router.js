@@ -13,7 +13,7 @@ router.get('/register', ViewsController.register)
 router.get('/login', ViewsController.login)
 router.get('/profile', ViewsController.profile)
 router.get('/profileJWT', ViewsController.profileJWT)
-router.get('/cookies', ViewsController.cookies)
+router.get('/carrito', ViewsController.carrito)
 //     }
 // }
 

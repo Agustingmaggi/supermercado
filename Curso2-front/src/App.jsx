@@ -4,7 +4,7 @@ import Body from './components/body/body.jsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import LoginForm from "./pages/LoginPages/LoginPage";
 import RegistrationForm from "./pages/RegistratePages/RegistratePage";
-import CartService from "./services/CartService";
+import CartService from "./services/CreateCartService";
 import CartPage from "./pages/CartPages/CartPage"
 import Profile from "./pages/ProfilePages/ProfilePage";
 

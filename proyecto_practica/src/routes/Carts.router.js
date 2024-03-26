@@ -1,13 +1,15 @@
+import { Router } from "express"
 import BaseRouter from './BaseRouter.js';
 import CartsController from '../controllers/CartsController.js'
+import { validateJWT } from "../middlewares/jwtExtractor.js";
 
-class CartsRouter extends BaseRouter {
-    init() {
-        this.get('/:cid', CartsController.getCart)
-        this.post('/', CartsController.createCart)
-    }
-}
+const router = Router()
+// class CartsRouter extends BaseRouter {
+//     init() {
+router.get('/:cid', validateJWT, CartsController.getCart)
+router.post('/', CartsController.createCart)
+router.put('/products', CartsController.updateCart)
+//     }
+// }
 
-const cartsRouter = new CartsRouter();
-
-export default cartsRouter.getRouter();
+export default router

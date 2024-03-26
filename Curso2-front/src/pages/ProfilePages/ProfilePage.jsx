@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import ProfileService from '../../services/ProfileService';
+import CartService from '../../services/CartService';
 
 const Profile = () => {
     const [user, setUser] = useState(null);
-    const [userProducts, setUserProducts] = useState([]);
+    const [productos, setProductos] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             const profileService = new ProfileService();
+            const cartService = new CartService();
+
             try {
-                const { response } = await profileService.getProfile();
-                const data = await response.json();
-                console.log(data)
+                const { data } = await profileService.getProfile();
                 setUser(data.user);
-                setUserProducts(data.productos);
-            } catch (error) {
-                console.error('Error fetching profile data:', error);
+            } catch (profileError) {
+                console.error('Error fetching profile data:', profileError);
+            }
+
+            try {
+                const { data } = await cartService.getCart();
+                setProductos(data.products);
+            } catch (cartError) {
+                console.error('Error fetching cart data:', cartError);
             }
         };
 
@@ -34,12 +41,12 @@ const Profile = () => {
             )}
             <h2>Products</h2>
             <div>
-                {userProducts.map(product => (
-                    <div key={product.id}>
-                        <h3>{product.name}</h3>
-                        <p>Description: {product.description}</p>
-                        {/* Renderizar otros detalles del producto según sea necesario */}
-                    </div>
+                {productos.map((producto, index) => (
+                    <li key={index}>
+                        <h2>{producto.product.title}</h2>
+                        <p>Precio: ${producto.product.price}</p>
+                        <p>Cantidad: {producto.quantity}</p>
+                    </li>
                 ))}
             </div>
         </div>

@@ -1,12 +1,13 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-const collection = "Carts"
+const collection = "Carts";
 
-const productsSubschema = new mongoose.Schema({
+const productSubschema = new mongoose.Schema({
     product: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'products'
     },
+    added: Date,
     quantity: {
         type: Number,
         default: 1
@@ -14,13 +15,17 @@ const productsSubschema = new mongoose.Schema({
 }, { _id: false })
 
 const schema = new mongoose.Schema({
-    products: [productsSubschema],
+    products: [productSubschema],
     total: {
         type: Number,
-        default: 0
+        // required: true
     }
-})
+}, { timestamps: true });
 
+// schema.pre(['find', 'findOne'], function () {
+//     this.populate('products.product')
+// })
 
-const cartsModel = mongoose.model(collection, schema)
-export default cartsModel
+const cartModel = mongoose.model(collection, schema);
+
+export default cartModel;

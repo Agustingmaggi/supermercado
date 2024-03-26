@@ -1,4 +1,6 @@
+import cartRepository from "../services/repositories/CartsRepository.js";
 import productsRepository from "../services/repositories/ProductsRepository.js";
+
 
 const home = async (req, res) => {
     const products = await productsRepository.getProducts().lean()
@@ -35,5 +37,13 @@ const cookies = async (req, res) => {
     res.render('cookies')
 }
 
+const carrito = async (req, res) => {
+    const cartId = '6602d978355e3f0a3d5643d7'
+    const cart = await cartRepository.getCart(cartId).populate('products.product').lean()
+    const products = cart.products
+    res.send({ products: products })
+    console.log(products)
+}
 
-export default { home, register, login, profile, profileJWT, cookies }
+
+export default { home, register, login, profile, profileJWT, cookies, carrito }

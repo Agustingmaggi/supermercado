@@ -15,7 +15,12 @@ const createProducts = async (req, res) => {
     console.log(req.files)
     const { title, price } = req.body
     const nuevoProd = { title, price }
-    const images = req.files.map(file => `${req.protocol}://${req.hostname}:${process.env.PORT || 1234}/img/${file.filename}`);
+    const images = []
+    for (const file of req.files) {
+        const imageData = file.buffer;
+        const imageDataUrl = 'data:' + file.mimetype + ';base64,' + imageData.toString('base64');
+        images.push(imageDataUrl)
+    }
     nuevoProd.images = images
 
     const result = await productsRepository.createProduct(nuevoProd)

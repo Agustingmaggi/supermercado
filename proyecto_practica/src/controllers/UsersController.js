@@ -1,3 +1,4 @@
+import cartRepository from "../services/repositories/CartsRepository.js"
 import userRepository from "../services/repositories/UsersRepository.js"
 import { createHash, validatePassword } from '../utils.js'
 import jwt from "jsonwebtoken"
@@ -65,8 +66,11 @@ const login = async (req, res) => {
 // }
 
 const profileInfo = async (req, res) => {
-    console.log(req.user)
-    res.send({ payload: req.user })
+    const user = req.user
+    const cartId = req.user.cart
+    const carrito = await cartRepository.getCart({ _id: cartId })
+    // console.log(carrito)
+    res.send({ user, carrito })
 }
 
 export default { getUsers, register, getUserBy, login, logout, profileInfo }
