@@ -11,13 +11,13 @@ const AppRouter = () => {
     return (
         <Router>
             <div className="App">
-                <Routes>
-                    <Route path="/" element={<Body />} />
-                    <Route path="/login" element={<LoginForm />} />
-                    <Route path="/register" element={<RegistrationForm />} />
-                    <Route path="/cart" element={<CartPage />} />
-                    <Route path="/profile" element={<Profile />} />
-                </Routes>
+                <Switch>
+                    <Route exact path="/" component={Body} />
+                    <Route path="/login" component={LoginForm} />
+                    <Route path="/register" component={RegistrationForm} />
+                    <Route path="/cart" component={CartPage} />
+                    <Route path="/profile" component={Profile} />
+                </Switch>
             </div>
         </Router>
     );
