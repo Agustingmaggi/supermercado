@@ -6,7 +6,7 @@ export default class HomeService {
     }
     getHome = () => {
         const requestInfo = {
-            url: `http://localhost:1234/`
+            url: `https://supermercado-wuhe.onrender.com/`
         }
         return this.client.makeGetRequest(requestInfo)
     }

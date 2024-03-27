@@ -7,7 +7,7 @@ export default class AgregarAlCarritoService {
 
     AgregarAlCarrito = (formData) => {
         const requestInfo = {
-            url: `http://localhost:1234/carts/products`,
+            url: `https://supermercado-wuhe.onrender.com/carts/products`,
             body: formData,
             config: {
                 headers: {

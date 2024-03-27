@@ -9,7 +9,7 @@ export default class ProfileService {
 
     getProfile = () => {
         const requestInfo = {
-            url: `http://localhost:1234/api/sessions/profileinfo`,
+            url: `https://supermercado-wuhe.onrender.com/api/sessions/profileinfo`,
             config: {
                 headers: {
                     Authorization: `Bearer ${token}`

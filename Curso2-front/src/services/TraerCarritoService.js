@@ -9,7 +9,7 @@ export default class TraerCarritoService {
 
     getProfile = () => {
         const requestInfo = {
-            url: `http://localhost:1234/carts/:cid`,
+            url: `https://supermercado-wuhe.onrender.com/carts/:cid`,
             config: {
                 headers: {
                     Authorization: `Bearer ${token}`

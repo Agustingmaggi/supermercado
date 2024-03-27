@@ -7,7 +7,7 @@ export default class AuthService {
 
     registerUser = (formData) => {
         const requestInfo = {
-            url: `http://localhost:1234/api/sessions/register`,
+            url: `https://supermercado-wuhe.onrender.com/api/sessions/register`,
             body: formData,
             headers: {
                 'Content-Type': 'application/json'
@@ -18,7 +18,7 @@ export default class AuthService {
     }
     loginUser = (formData) => {
         const requestInfo = {
-            url: `http://localhost:1234/api/sessions/login`,
+            url: `https://supermercado-wuhe.onrender.com/api/sessions/login`,
             body: formData,
             credentials: 'include',
             headers: {

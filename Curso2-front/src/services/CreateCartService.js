@@ -10,7 +10,7 @@ export default class CartService {
         if (!localStorageCart) {
             // Si no hay un carrito en el localStorage, solicita al servidor que cree uno
             const response = await this.client.makePostRequest({
-                url: `http://localhost:1234/carts`
+                url: `https://supermercado-wuhe.onrender.com/carts`
             });
             const cartId = response.data.payload;
             // Guarda el ID del carrito en el localStorage

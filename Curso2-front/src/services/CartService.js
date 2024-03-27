@@ -8,7 +8,7 @@ export default class CartService {
     }
     getCart = () => {
         const requestInfo = {
-            url: `http://localhost:1234/carrito/`,
+            url: `https://supermercado-wuhe.onrender.com/carrito/`,
             config: {
                 headers: {
                     Authorization: `Bearer ${token}`
