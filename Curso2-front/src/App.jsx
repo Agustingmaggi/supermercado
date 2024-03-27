@@ -1,12 +1,8 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import Body from './components/body/body.jsx'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import LoginForm from "./pages/LoginPages/LoginPage";
-import RegistrationForm from "./pages/RegistratePages/RegistratePage";
+
 import CartService from "./services/CreateCartService";
-import CartPage from "./pages/CartPages/CartPage"
-import Profile from "./pages/ProfilePages/ProfilePage";
+import AppRouter from "./AppRouter.jsx";
 
 function App() {
   useEffect(() => {
@@ -21,17 +17,9 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Body />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/register" element={<RegistrationForm />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <AppRouter />
+    </div>
   );
 }
 

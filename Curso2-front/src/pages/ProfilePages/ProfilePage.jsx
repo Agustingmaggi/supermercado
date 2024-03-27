@@ -56,7 +56,7 @@ const Profile = () => {
                         </li>
                     ))}
                 </ul><br></br>
-                <p class='total'>Total Carrito: ${totalCarrito}</p><br></br>
+                <p className='total'>Total Carrito: ${totalCarrito}</p><br></br>
                 <button className="agregar-carrito">Comprar</button>
             </div>
         </div>
