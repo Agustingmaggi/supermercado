@@ -1,0 +1,16 @@
+ul {
+    list-style-type: none;
+    /* Elimina los puntos */
+    padding: 0;
+    /* Elimina el padding */
+    margin: 0;
+    /* Elimina el margin */
+}
+
+.subtotal {
+    text-decoration: underline;
+}
+
+.total {
+    font-weight: bold;
+}
