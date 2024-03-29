@@ -21,6 +21,7 @@ const login = async (req, res) => {
 }
 
 const profile = async (req, res) => {
+    console.log(req.session)
     if (!req.session.user) {
         return res.redirect('/login')
     }
@@ -38,11 +39,13 @@ const cookies = async (req, res) => {
 }
 
 const carrito = async (req, res) => {
-    const cartId = '6602d978355e3f0a3d5643d7'
+    // console.log("desde views controller, carrito", req.user)
+    // console.log("hola!")
+    const cartId = req.user.cart
     const cart = await cartRepository.getCart(cartId).populate('products.product').lean()
     const products = cart.products
     res.send({ products: products })
-    console.log(products)
+    // console.log(cart)
 }
 
 

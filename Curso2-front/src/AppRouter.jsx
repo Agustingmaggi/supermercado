@@ -4,7 +4,7 @@ import Body from './components/body/body.jsx'
 import LoginForm from "./pages/LoginPages/LoginPage";
 import RegistrationForm from "./pages/RegistratePages/RegistratePage";
 // import CartPage from "./pages/CartPages/CartPage"
-import Profile from "./pages/ProfilePages/ProfilePage";
+import Carrito from "./pages/CarritoPages/CarritoPage.jsx";
 
 
 const AppRouter = () => {
@@ -16,7 +16,7 @@ const AppRouter = () => {
                     <Route path="/login" element={<LoginForm />} />
                     <Route path="/register" element={<RegistrationForm />} />
                     {/* <Route path="/cart" element={<CartPage />} /> */}
-                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/carrito" element={<Carrito />} />
                 </Routes>
             </div>
         </Router>

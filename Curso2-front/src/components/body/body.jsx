@@ -3,7 +3,7 @@ import './body.css';
 import Navbar from '../barranav/barranav';
 import HomeService from '../../services/HomeService';
 import AgregarAlCarritoService from '../../services/AgregarAlCarritoService';
-import ProfileService from '../../services/ProfileService';
+import ProfileService from '../../services/UserService';
 
 const BodyComponent = () => {
     const [productos, setProductos] = useState([]);

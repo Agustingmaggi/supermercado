@@ -25,7 +25,7 @@ const RegistrationForm = () => {
         };
 
         try {
-            console.log(formData)
+            // console.log(formData)
             const response = await authService.registerUser(formData);
 
             if (response.status === 200) {

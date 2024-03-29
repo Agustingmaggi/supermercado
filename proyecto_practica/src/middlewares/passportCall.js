@@ -3,7 +3,7 @@ import passport from "passport"
 const passportCall = (strategy, options = {}) => {
     return async (req, res, next) => {
         passport.authenticate(strategy, function (error, user, info) {
-            console.log(user)
+            console.log("user en passport call", user)
             if (error) return next(error);
             // if (!options.strategyType) {
             //     return res.sendInternalError('strategyType not defined')

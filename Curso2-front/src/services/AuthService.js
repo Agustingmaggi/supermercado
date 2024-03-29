@@ -18,14 +18,14 @@ export default class AuthService {
     }
     loginUser = (formData) => {
         const requestInfo = {
-            url: `https://supermercado-wuhe.onrender.com/api/sessions/login`,
+            url: `http://localhost:1234/api/sessions/login`,
             body: formData,
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             },
         }
-        console.log(formData)
+        // console.log(formData)
         return this.client.makePostRequest(requestInfo)
     }
 

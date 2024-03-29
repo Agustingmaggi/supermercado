@@ -10,22 +10,23 @@ const localStrategy = local.Strategy
 
 const initializeStrategies = () => {
 
-    passport.use('register', new localStrategy({ passReqToCallback: true, usernameField: 'email', session: false }, async (req, email, password, done) => {
-        const { firstName, lastName } = req.body
-        // console.log(req.body)
-        if (!email || !password) {
-            return done(null, false, { message: 'Incomplete Values' })
-        }
-        const hashedPassword = await createHash(password)
-        const nuevoUsuario = { firstName, lastName, email, password: hashedPassword }
+    passport.use('register', new localStrategy({ passReqToCallback: true, usernameField: 'email', session: false },
+        async (req, email, password, done) => {
+            const { firstName, lastName } = req.body
+            // console.log(req.body)
+            if (!email || !password) {
+                return done(null, false, { message: 'Incomplete Values' })
+            }
+            const hashedPassword = await createHash(password)
+            const nuevoUsuario = { firstName, lastName, email, password: hashedPassword }
 
 
-        let cart = await cartRepository.createCart()
-        nuevoUsuario.cart = cart._id
+            let cart = await cartRepository.createCart()
+            nuevoUsuario.cart = cart._id
 
-        const result = await userRepository.createUser(nuevoUsuario)
-        done(null, result)
-    }))
+            const result = await userRepository.createUser(nuevoUsuario)
+            done(null, result)
+        }))
 
     passport.use('login', new localStrategy({ usernameField: 'email', session: false }, async (email, password, done) => {
         if (!email || !password) return done(null, false, { message: 'Incomplete Values' })

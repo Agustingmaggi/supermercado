@@ -37,6 +37,7 @@ const logout = async (req, res) => {
 //login de clase 11
 
 const login = async (req, res) => {
+    console.log("console lod desde el login del controlador")
     const { email, password } = req.body;
     if (!email || !password) return res.status(400).send({ status: "error", error: "Incomplete values" })
     const user = await userRepository.getUserBy({ email })
@@ -66,6 +67,7 @@ const login = async (req, res) => {
 // }
 
 const profileInfo = async (req, res) => {
+    // console.log("desde user controller, profile Info: ", req.user)
     const user = req.user
     const cartId = req.user.cart
     const carrito = await cartRepository.getCart({ _id: cartId })

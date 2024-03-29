@@ -1,4 +1,5 @@
 import { Router } from "express"
+import { validateJWT } from '../middlewares/jwtExtractor.js';
 
 // import BaseRouter from './BaseRouter.js'
 import ViewsController from '../controllers/Views.Controller.js'
@@ -13,7 +14,7 @@ router.get('/register', ViewsController.register)
 router.get('/login', ViewsController.login)
 router.get('/profile', ViewsController.profile)
 router.get('/profileJWT', ViewsController.profileJWT)
-router.get('/carrito', ViewsController.carrito)
+router.get('/carrito', validateJWT, ViewsController.carrito)
 //     }
 // }
 

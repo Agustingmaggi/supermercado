@@ -7,9 +7,9 @@ export default class ProfileService {
         this.client = new AxiosClient()
     }
 
-    getProfile = () => {
+    getUser = () => {
         const requestInfo = {
-            url: `https://supermercado-wuhe.onrender.com/api/sessions/profileinfo`,
+            url: `http://localhost:1234/api/sessions/user`,
             config: {
                 headers: {
                     Authorization: `Bearer ${token}`

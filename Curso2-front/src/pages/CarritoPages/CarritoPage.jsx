@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import ProfileService from '../../services/ProfileService';
+import UserService from '../../services/UserService';
 import CartService from '../../services/CartService';
-import './ProfilePage.css'
+import './CarritoPage.css'
 
-const Profile = () => {
+const Carrito = () => {
     const [user, setUser] = useState(null);
     const [productos, setProductos] = useState([]);
     const subtotales = productos.map(producto => producto.product.price * producto.quantity);
@@ -12,11 +12,12 @@ const Profile = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const profileService = new ProfileService();
+            const userService = new UserService();
             const cartService = new CartService();
 
             try {
-                const { data } = await profileService.getProfile();
+                const { data } = await userService.getUser();
+                // console.log(data)
                 setUser(data.user);
             } catch (profileError) {
                 console.error('Error fetching profile data:', profileError);
@@ -35,7 +36,7 @@ const Profile = () => {
 
     return (
         <div>
-            <h1>User Profile</h1><br></br>
+            <h1>Carrito</h1><br></br>
             {user && (
                 <div>
                     <h2>Welcome, {user.email}!</h2><br></br>
@@ -63,4 +64,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default Carrito;
